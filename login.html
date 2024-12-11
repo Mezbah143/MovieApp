@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Movie Recommender</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Watchlist</a></li>
+                    <li><a href="login.html" id="login"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="showcase">
+        <div class="container">
+            <h1>Find Your Next Favorite Movie</h1>
+            <p>Discover and track movies based on your preferences</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="search-form">
+            <input type="text" id="movieName" placeholder="Search by Movie Name">
+            <select id="genre">
+                <option value="">Genre</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="thriller">Thriller</option>
+            </select>
+            <input type="text" id="actors" placeholder="Actors">
+            <input type="text" id="directors" placeholder="Directors">
+            <input type="number" id="rating" placeholder="Rating" min="0" max="10" step="0.1">
+            <button onclick="searchMovies()">Search</button>
+        </div>
+
+        <div class="row movies" id="movies"></div>
+    </div>
+
+    <!-- Movie Modal -->
+    <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="movieModalLabel">Movie Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Movie details will be loaded here dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="add-to-favorites">Add to Favorites</button>
+                    <button type="button" class="btn btn-primary" id="add-to-watchlist">Add to Watchlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
