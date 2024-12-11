@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap');
+
+/* General body styling */
+body {
+    background: linear-gradient(to right, #141E30, #243B55);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+    background: #1F4068;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #e43f5a;
+    margin: 0;
+}
+
+/* Navigation bar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background: #e43f5a;
+}
+
+#showcase {
+    background: linear-gradient(to bottom right, #1F4068, #e43f5a);
+    text-align: center;
+    padding: 4rem 2rem;
+    color: white;
+    border-radius: 5px;
+    margin: 2rem 0;
+    font-family: 'Raleway', sans-serif; /* Updated font family */
+}
+
+#showcase h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 700; /* Make the heading bold */
+}
+
+#showcase p {
+    font-size: 1.2rem;
+    font-weight: 300; /* Use lighter font for paragraph text */
+}
+
+/* Search form styling */
+#search-form {
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#search-form input,
+#search-form select,
+#search-form button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    flex: 1 1 calc(25% - 10px);
+}
+
+#search-form button {
+    background: #e43f5a;
+    color: white;
+    cursor: pointer;
+}
+#search-form button:hover {
+    background: #91e30b;
+}
+
+/* Movies section */
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.movie {
+    background: #1F4068;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1 1 calc(33% - 30px);
+}
+
+.movie img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.movie h5 {
+    margin: 10px 0;
+}
+
+.movie p {
+    color: #777;
+}
+
+.movie button {
+    background: #c6442d;
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.movie button:hover {
+    background: #149330;
+}
+
+/* Modal styles */
+.modal-body {
+    text-align: center;
+}
+
+.modal-body h5 {
+    margin: 20px 0 10px;
+}
+
+.modal-body p {
+    color: #777;
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 315px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.modal-footer button {
+    background: #aa1e1b;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-footer button:hover {
+    background: #19881b;
+}
+
+
+
+@media (max-width: 1200px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    #showcase h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .movies {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two items per row */
+    }
+
+    #search-form input, #search-form select {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    #showcase h1 {
+        font-size: 1.6rem;
+    }
+
+    .movies {
+        display: grid;
+        grid-template-columns: 1fr; /* One item per row */
+    }
+
+    #search-form input, #search-form select {
+        width: 100%; /* Full-width inputs on small screens */
+    }
+
+    #search-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    #showcase h1 {
+        font-size: 1.4rem;
+    }
+
+    .movie {
+        width: 100%; /* Full width for movie items on very small screens */
+    }
+
+    #search-form input, #search-form select, #search-form button {
+        width: 100%;
+    }
+}

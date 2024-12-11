@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movei App - Login/Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Embedded CSS */
+        :root {
+            --primary-color: #08872c;      /* Deep Blue-Green */
+            --secondary-color: #2C8EBB;    /* Bright Blue */
+            --accent-color: #FFC107;       /* Vibrant Yellow */
+            --text-color: #333;
+            --background-color: #F4F4F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .form-wrapper {
+            padding: 30px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form.hidden {
+            display: none;
+        }
+
+        .form h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin: 0 5px;
+        }
+
+        .social-btn i {
+            margin-right: 10px;
+        }
+
+        .social-btn.google {
+            background-color: #DB4437;
+        }
+
+        .social-btn.facebook {
+            background-color: #4267B2;
+        }
+
+        .form-switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .forgot-password {
+            text-align: center;
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-wrapper">
+                <!-- Login Form -->
+                <form id="login-form" class="form">
+                    <h2>Login to Movies Recommender</h2>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="form-switch">
+                        Don't have an account? 
+                        <a href="#" id="signup-link">Sign Up</a>
+                    </p>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="form hidden">
+                    <h2>Create Account</h2>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the Terms and Conditions</label>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                    
+                    <p class="form-switch">
+                        Already have an account? 
+                        <a href="#" id="login-link">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Embedded JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const signupLink = document.getElementById('signup-link');
+            const loginLink = document.getElementById('login-link');
+            const forgotPasswordLink = document.querySelector('.forgot-password');
+
+            // Switch to Signup Form
+            signupLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+            });
+
+            // Switch to Login Form
+            loginLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                signupForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+            });
+
+            // Login Form Submission
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = loginForm.querySelector('input[type="email"]').value;
+                const password = loginForm.querySelector('input[type="password"]').value;
+                
+                // Perform login validation
+                if (validateLogin(email, password)) {
+                    // Simulate login (replace with actual authentication)
+                    console.log('Login Attempt:', email);
+                    alert('Login Successful!');
+                    // Redirect to main app or dashboard
+                } else {
+                    alert('Invalid email or password');
+                }
+            });
+
+            // Signup Form Submission
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = signupForm.querySelector('input[type="text"]').value;
+                const email = signupForm.querySelector('input[type="email"]').value;
+                const password = signupForm.querySelector('input[type="password"]').value;
+                const confirmPassword = signupForm.querySelectorAll('input[type="password"]')[1].value;
+                const termsChecked = signupForm.querySelector('#terms').checked;
+
+                // Perform signup validation
+                if (validateSignup(name, email, password, confirmPassword, termsChecked)) {
+                    console.log('Signup Attempt:', email);
+                    alert('Account Created Successfully!');
+                    // Redirect to login or main app
+                }
+            });
+
+            // Social Login Handlers
+            document.querySelector('.social-btn.google').addEventListener('click', () => {
+                // Implement Google OAuth login
+                alert('Google Login - To be implemented');
+            });
+
+            document.querySelector('.social-btn.facebook').addEventListener('click', () => {
+                // Implement Facebook OAuth login
+                alert('Facebook Login - To be implemented');
+            });
+
+            // Forgot Password Handler
+            forgotPasswordLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = prompt('Please enter your email address:');
+                if (email) {
+                    // Implement password reset logic
+                    alert('Password reset instructions sent to ' + email);
+                }
+            });
+
+            // Validation Functions
+            function validateLogin(email, password) {
+                // Basic validation
+                return email.includes('@') && password.length >= 6;
+            }
+
+            function validateSignup(name, email, password, confirmPassword, termsChecked) {
+                if (name.length < 2) {
+                    alert('Please enter a valid name');
+                    return false;
+                }
+                if (!email.includes('@')) {
+                    alert('Please enter a valid email');
+                    return false;
+                }
+                if (password.length < 6) {
+                    alert('Password must be at least 6 characters');
+                    return false;
+                }
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return false;
+                }
+                if (!termsChecked) {
+                    alert('Please agree to the terms and conditions');
+                    return false;
+                }
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>
